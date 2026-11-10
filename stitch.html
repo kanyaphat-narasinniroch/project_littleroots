@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Roots | Thai Botanical Garden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f6eedb;
+      color: #2d3b2d;
+      font-family: 'Mali', 'Prompt', sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 56px, 890px);
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .site-header {
+      background: #f7efe1;
+      border-bottom: 2px solid #ecdcc4;
+    }
+
+    .header-inner {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      background: #4b8c49;
+      border-radius: 8px;
+      color: #d7f0a7;
+      font-size: 19px;
+    }
+
+    .brand-name {
+      color: #213c23;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      color: #6a8267;
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border: 1px solid #e7d8c0;
+      border-radius: 30px;
+      background: #fdfbf7;
+      transition: 0.2s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: #eef7ed;
+      border-color: #387b3e;
+    }
+
+    .nav-icon {
+      font-size: 14px;
+    }
+
+    .nav-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .nav-text small {
+      color: #798d78;
+      font-size: 8px;
+      font-weight: 500;
+    }
+
+    /* Hero banner and search */
+    .hero {
+      height: 245px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 3px solid #e6d3b4;
+      background: linear-gradient(180deg, #24502e 0%, #397b42 58%, #6d9c4c 100%);
+    }
+
+    .hero-scene {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: linear-gradient(165deg, transparent 0 58%, #b7a477 59% 63%, #6e9a4c 64%);
+    }
+
+    .scene-item {
+      position: absolute;
+      z-index: 0;
+      font-size: 54px;
+      line-height: 1;
+      filter: drop-shadow(2px 4px 2px #18351c88);
+      user-select: none;
+    }
+
+    .scene-house { left: 5%; bottom: 30px; font-size: 78px; }
+    .scene-tree-one { left: 1%; top: 12px; font-size: 76px; }
+    .scene-tree-two { left: 38%; top: 0; font-size: 70px; }
+    .scene-tree-three { right: 5%; top: 10px; font-size: 76px; }
+    .scene-water { right: 16%; top: 0; font-size: 82px; }
+    .scene-flower-one { left: 30%; bottom: 25px; font-size: 30px; }
+    .scene-flower-two { right: 30%; bottom: 24px; font-size: 28px; }
+    .scene-path { position: absolute; left: 28%; bottom: -25px; width: 42%; height: 72px; border-radius: 50%; background: #c6b58d; transform: rotate(-7deg); box-shadow: 0 -5px 0 #9d8a63; }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 36, 18, 0.12), rgba(20, 36, 18, 0.28));
+    }
+
+    .hero-content {
+      width: min(100% - 48px, 600px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 8px 6px 18px;
+      border: 2px solid #6b8565;
+      border-radius: 40px;
+      background: #fbf7ee;
+      box-shadow: 0 8px 22px rgba(18, 38, 17, 0.3);
+    }
+
+    .search-bar input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #263825;
+      font: 500 13px 'Mali', 'Prompt', sans-serif;
+    }
+
+    .search-bar input::placeholder {
+      color: #71836e;
+    }
+
+    .search-button {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border: 1px solid #b89c67;
+      border-radius: 50%;
+      background: #dfcb9f;
+      font-size: 18px;
+    }
+
+    .welcome-bubble {
+      width: fit-content;
+      margin: 12px 0 0 auto;
+      padding: 7px 12px;
+      border: 2px solid #2b4528;
+      border-radius: 14px;
+      background: white;
+      box-shadow: 0 5px 12px #0003;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .welcome-bubble small {
+      display: block;
+      color: #6a8067;
+      font-size: 8px;
+      font-weight: 500;
+    }
+
+    /* Shared section heading */
+    .section-heading {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      color: #253924;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .section-heading p {
+      margin-top: 3px;
+      color: #71816d;
+      font-size: 11px;
+    }
+
+    /* Plant categories */
+    .categories-section {
+      padding: 30px 0 44px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .category-card {
+      min-height: 236px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 18px 12px 13px;
+      border: 1.5px solid #ead8bd;
+      border-radius: 15px;
+      background: #fffdfa;
+      box-shadow: 0 6px 14px rgba(95, 75, 45, 0.08);
+      text-align: center;
+      transition: 0.25s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      border-color: #baa17a;
+      box-shadow: 0 12px 22px rgba(85, 65, 35, 0.13);
+    }
+
+    .category-icon {
+      min-height: 62px;
+      display: grid;
+      place-items: center;
+      font-size: 36px;
+      image-rendering: pixelated;
+    }
+
+    .category-card h3 {
+      color: #263c27;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .category-card .english-title {
+      margin-bottom: 9px;
+      color: #7b8c76;
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    .category-card p {
+      flex: 1;
+      margin-bottom: 12px;
+      color: #687765;
+      font-size: 9px;
+      line-height: 1.55;
+    }
+
+    .explore-button {
+      width: 100%;
+      padding: 5px 8px;
+      border: 1px solid #d5be98;
+      border-radius: 30px;
+      background: #ebdcb9;
+      color: #493c25;
+      font: 700 10px 'Mali', 'Prompt', sans-serif;
+      text-align: center;
+    }
+
+    /* Featured plants */
+    .featured-section {
+      padding: 36px 0 48px;
+      border-top: 1.5px solid #ecdac0;
+      border-bottom: 1.5px solid #ecdac0;
+      background: #f2e9d7;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .plant-card {
+      overflow: hidden;
+      border: 1.5px solid #e2d1b7;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 6px 14px rgba(95, 75, 45, 0.08);
+      transition: 0.25s;
+    }
+
+    .plant-card:hover {
+      transform: translateY(-5px);
+      border-color: #3e8845;
+      box-shadow: 0 12px 22px rgba(85, 65, 35, 0.13);
+    }
+
+    .plant-picture {
+      height: 104px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-bottom: 2px dashed #b8cca9;
+      background: linear-gradient(#dcf0d9, #cde5c9);
+    }
+
+    .plant-picture .plant-emoji {
+      font-size: 38px;
+      filter: drop-shadow(0 5px 5px rgba(30, 60, 20, 0.15));
+    }
+
+    .level-label,
+    .plant-type {
+      position: absolute;
+      padding: 2px 7px;
+      border-radius: 20px;
+      background: white;
+      font-size: 8px;
+      font-weight: 700;
+    }
+
+    .level-label {
+      top: 8px;
+      left: 8px;
+      border: 1px solid #c2d8b8;
+      color: #386432;
+    }
+
+    .plant-type {
+      right: 8px;
+      bottom: 7px;
+    }
+
+    .type-herb { background: #e2f5e1; color: #206d26; }
+    .type-food { background: #fef0db; color: #b75708; }
+    .type-economic { background: #f0e6f7; color: #6e2794; }
+    .type-flower { background: #fde8f1; color: #ad2061; }
+
+    .plant-info {
+      min-height: 155px;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+    }
+
+    .plant-info h3 {
+      margin-bottom: 4px;
+      color: #263c27;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .plant-info p {
+      flex: 1;
+      margin-bottom: 10px;
+      color: #687765;
+      font-size: 9px;
+      line-height: 1.5;
+    }
+
+    .plant-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+      padding: 7px 8px;
+      border-radius: 10px;
+      background: #faf6ee;
+      color: #8c764a;
+      font-size: 8px;
+      font-weight: 700;
+    }
+
+    .detail-link {
+      padding: 5px 7px;
+      border: 1px solid #82b987;
+      border-radius: 20px;
+      background: #eef7ed;
+      color: #27692c;
+      font-size: 8px;
+    }
+
+    /* Quest guide */
+    .guide-section {
+      padding: 48px 0 52px;
+    }
+
+    .guide-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.3fr;
+      align-items: center;
+      gap: 28px;
+      padding: 28px;
+      border: 2px solid #3c6b3e;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #274b2a, #1a331c);
+      box-shadow: 0 14px 28px rgba(18, 41, 19, 0.2);
+      color: white;
+    }
+
+    .guide-intro h2 {
+      margin-bottom: 10px;
+      color: #f1ffe9;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .guide-intro p {
+      color: #c0dec0;
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    .guide-steps {
+      display: grid;
+      gap: 10px;
+    }
+
+    .guide-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid #ffffff33;
+      border-radius: 13px;
+      background: #ffffff19;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border: 2px solid #fff5c0;
+      border-radius: 9px;
+      background: #e9ba4c;
+      color: #422d05;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .step-text h3 {
+      margin-bottom: 2px;
+      color: white;
+      font-size: 11px;
+    }
+
+    .step-text p {
+      color: #c9e0ca;
+      font-size: 8px;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 28px 0 18px;
+      border-top: 2px solid #dfcfb2;
+      background: #ebe0cb;
+      color: #475a45;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+      border-bottom: 2px dashed #d5c3a3;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-brand .brand-icon {
+      width: 27px;
+      height: 27px;
+      font-size: 16px;
+    }
+
+    .footer-slogan {
+      color: #5c4524;
+      font-size: 11px;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .footer-plants {
+      display: flex;
+      gap: 6px;
+      font-size: 17px;
+    }
+
+    .footer-plants span {
+      padding: 3px 5px;
+      border: 1px solid #d4c0a0;
+      border-radius: 6px;
+      background: #f7efe0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 8px;
+      color: #273b25;
+      font-size: 10px;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      color: #5a6e57;
+      font-size: 9px;
+      line-height: 1.8;
+    }
+
+    .footer-column a {
+      display: block;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .social-links a {
+      width: 25px;
+      height: 25px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #cbb898;
+      border-radius: 50%;
+      background: #dfcfb2;
+      font-size: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 13px;
+      border-top: 1px solid #d8c6a6;
+      color: #728470;
+      font-size: 8px;
+    }
+
+    .footer-bottom nav {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Tablet and mobile */
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 32px, 600px);
+      }
+
+      .header-inner {
+        padding: 10px 0;
+        flex-wrap: wrap;
+      }
+
+      .main-nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .guide-box {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        height: 220px;
+      }
+
+      .section-heading h2 {
+        font-size: 20px;
+      }
+
+      .category-grid,
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-card {
+        min-height: 210px;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-plants {
+        flex-wrap: wrap;
+      }
+
+      .guide-box {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <span class="brand-icon">🌳</span>
+        <span>
+          <span class="brand-name">Little Roots</span>
+          <span class="brand-subtitle">Thai Botanical Garden</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="หมวดหมู่พืช">
+        <a class="nav-link active" href="#herbs"><span class="nav-icon">🌿</span><span class="nav-text">สมุนไพร<small>Medicinal</small></span></a>
+        <a class="nav-link" href="#food"><span class="nav-icon">🥕</span><span class="nav-text">พืชกินได้<small>Edible</small></span></a>
+        <a class="nav-link" href="#economic"><span class="nav-icon">🌾</span><span class="nav-text">พืชเศรษฐกิจ<small>Economic</small></span></a>
+        <a class="nav-link" href="#ornamental"><span class="nav-icon">🌸</span><span class="nav-text">ไม้ประดับ<small>Ornamental</small></span></a>
+        <a class="nav-link" href="#rare"><span class="nav-icon">🌺</span><span class="nav-text">พืชถิ่นเดียว<small>Endemic</small></span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero" aria-label="สวนพฤกษศาสตร์ Little Roots">
+      <div class="hero-scene" aria-hidden="true">
+        <span class="scene-item scene-house">🏡</span>
+        <span class="scene-item scene-tree-one">🌳</span>
+        <span class="scene-item scene-tree-two">🌲</span>
+        <span class="scene-item scene-tree-three">🌳</span>
+        <span class="scene-item scene-water">💦</span>
+        <span class="scene-item scene-flower-one">🌼🌷</span>
+        <span class="scene-item scene-flower-two">🌺🌿</span>
+        <span class="scene-path"></span>
+      </div>
+      <div class="hero-content">
+        <div class="search-bar">
+          <input type="search" placeholder="ค้นหาพืชพันธุ์ไทย... / Search plants..." aria-label="ค้นหาพืชพันธุ์ไทย">
+          <button class="search-button" type="button" aria-label="ค้นหา">🔍</button>
+        </div>
+        <div class="welcome-bubble">
+          ยินดีต้อนรับสู่สวนพันธุ์ไม้!
+          <small>Welcome to the Botanical Garden!</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>เลือกหมวดหมู่พันธุ์ไม้ที่อยากสำรวจ</h2>
+          <p>คลิกเพื่อผจญภัยและเรียนรู้ความมหัศจรรย์ของพืชไทยในแต่ละหมวดหมู่</p>
+        </div>
+
+        <div class="category-grid">
+          <article class="category-card" id="herbs">
+            <div class="category-icon">🌳</div>
+            <h3>สมุนไพรไทย</h3>
+            <span class="english-title">Thai Herbs</span>
+            <p>พืชใกล้ตัวมากสรรพคุณ บำรุงร่างกายและช่วยรักษาโรคตามภูมิปัญญาไทยโบราณ</p>
+            <a class="explore-button" href="#featured">สำรวจเลย →</a>
+          </article>
+
+          <article class="category-card" id="food">
+            <div class="category-icon">🥕</div>
+            <h3>พืชกินได้</h3>
+            <span class="english-title">Edible Plants</span>
+            <p>ผักพื้นบ้านริมรั้วและผลไม้ไทยรสเลิศ ปลูกง่าย อุดมด้วยวิตามินและสารอาหาร</p>
+            <a class="explore-button" href="#featured">สำรวจเลย →</a>
+          </article>
+
+          <article class="category-card" id="economic">
+            <div class="category-icon">🌾</div>
+            <h3>พืชเศรษฐกิจ</h3>
+            <span class="english-title">Economic Crops</span>
+            <p>พืชสร้างรายได้และอาชีพ ตั้งแต่งานเส้นใยจักสาน พืชไร่ จนถึงอุตสาหกรรมแปรรูป</p>
+            <a class="explore-button" href="#featured">สำรวจเลย →</a>
+          </article>
+
+          <article class="category-card" id="ornamental">
+            <div class="category-icon">🌸</div>
+            <h3>ไม้ดอกไม้ประดับ</h3>
+            <span class="english-title">Ornamental Flowers</span>
+            <p>เติมความสดชื่นด้วยไม้ดอกกลิ่นหอม ไม้มงคลนำโชค และไม้จัดสวนตกแต่งบ้าน</p>
+            <a class="explore-button" href="#featured">สำรวจเลย →</a>
+          </article>
+
+          <article class="category-card" id="rare">
+            <div class="category-icon">🪴</div>
+            <h3>พืชหายาก &amp; ถิ่นเดียว</h3>
+            <span class="english-title">Rare &amp; Endemic</span>
+            <p>พันธุ์ไม้ล้ำค่าที่พบได้เฉพาะในผืนป่าไทย ร่วมเรียนรู้คุณค่าและช่วยกันอนุรักษ์</p>
+            <a class="explore-button" href="#featured">สำรวจเลย →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-section" id="featured">
+      <div class="container">
+        <div class="section-heading">
+          <h2>พืชพันธุ์ที่น่าสนใจ (Featured Plants)</h2>
+          <p>การ์ดสำรวจพันธุ์พืชยอดฮิต สนุก ได้ความรู้ พร้อมเกร็ดทดลองนำไปใช้ในชีวิตประจำวัน</p>
+        </div>
+
+        <div class="featured-grid">
+          <article class="plant-card">
+            <div class="plant-picture">
+              <span class="level-label">⭐ ปรุงยา Lv.1</span>
+              <span class="plant-emoji">🌱</span>
+              <span class="plant-type type-herb">สมุนไพร</span>
+            </div>
+            <div class="plant-info">
+              <h3>ฟ้าทะลายโจร</h3>
+              <p>สมุนไพรประจำบ้านรสขม บรรเทาอาการหวัด เจ็บคอ และมีสารแอนโดรกราโฟไลด์ช่วยเสริมสร้างภูมิคุ้มกันให้ร่างกาย</p>
+              <div class="plant-action"><span>✨ ได้รับ 50 EXP</span><a class="detail-link" href="#guide">ดูรายละเอียด →</a></div>
+            </div>
+          </article>
+
+          <article class="plant-card">
+            <div class="plant-picture">
+              <span class="level-label">🔥 ความเผ็ด Lv.5</span>
+              <span class="plant-emoji">🌶️</span>
+              <span class="plant-type type-food">พืชอาหาร</span>
+            </div>
+            <div class="plant-info">
+              <h3>พริกขี้หนูสวน</h3>
+              <p>เครื่องเทศคู่ครัวไทยเม็ดเล็กแต่รสเผ็ดจัดจ้าน อุดมด้วยสารแคปไซซิน ช่วยให้เจริญอาหารและกระตุ้นการไหลเวียนโลหิต</p>
+              <div class="plant-action"><span>✨ ได้รับ 45 EXP</span><a class="detail-link" href="#guide">ดูรายละเอียด →</a></div>
+            </div>
+          </article>
+
+          <article class="plant-card">
+            <div class="plant-picture">
+              <span class="level-label">🎋 แข็งแกร่ง Lv.3</span>
+              <span class="plant-emoji">🎋</span>
+              <span class="plant-type type-economic">พืชเศรษฐกิจ</span>
+            </div>
+            <div class="plant-info">
+              <h3>ไผ่ตงลืมแล้ง</h3>
+              <p>พืชเส้นใยมหัศจรรย์ ลำต้นใช้สร้างบ้านจักสานสิ่งของ ส่วนหน่อไม้นำมาต้มปรุงอาหารรสชาติหวานกรอบอร่อย</p>
+              <div class="plant-action"><span>✨ ได้รับ 60 EXP</span><a class="detail-link" href="#guide">ดูรายละเอียด →</a></div>
+            </div>
+          </article>
+
+          <article class="plant-card">
+            <div class="plant-picture">
+              <span class="level-label">🌸 กลิ่นหอม Lv.4</span>
+              <span class="plant-emoji">🌺</span>
+              <span class="plant-type type-flower">ไม้ประดับ</span>
+            </div>
+            <div class="plant-info">
+              <h3>แก้วมุกดา</h3>
+              <p>ไม้มงคลดอกสีขาวนวลส่งกลิ่นหอมชื่นใจ นิยมปลูกประดับตกแต่งสวนให้ร่มรื่น ทนทานต่อสภาพอากาศร้อนชื้นของไทย</p>
+              <div class="plant-action"><span>✨ ได้รับ 40 EXP</span><a class="detail-link" href="#guide">ดูรายละเอียด →</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section" id="guide">
+      <div class="container">
+        <div class="guide-box">
+          <div class="guide-intro">
+            <h2>คำแนะนำในการใช้งานเว็บ<br>(Interactive Quest Guide)</h2>
+            <p>ยินดีต้อนรับนักสำรวจตัวน้อย! ระบบคลังข้อมูลพืชพรรณ Little Roots ออกแบบมาให้อ่านง่าย สนุกเหมือนเล่นเกมสำรวจฟาร์ม เดินตาม 3 ขั้นตอนนี้เพื่อปลดล็อกความรู้รอบตัวได้เลย!</p>
+          </div>
+
+          <div class="guide-steps">
+            <article class="guide-step">
+              <span class="step-number">1</span>
+              <div class="step-text">
+                <h3>ค้นหาชื่อพืชผ่าน Search Bar</h3>
+                <p>พิมพ์ชื่อต้นไม้ สรรพคุณยา หรือคำค้นหาง่ายๆ เช่น “ใบกะเพรา”, “มะลิ”, “แก้หวัด” ในแถบค้นหาด้านบน</p>
+              </div>
+            </article>
+            <article class="guide-step">
+              <span class="step-number">2</span>
+              <div class="step-text">
+                <h3>เลือกดูตามหมวดหมู่การใช้งาน</h3>
+                <p>เจาะลึกพืชพรรณตามการใช้จริง เช่น พืชสมุนไพรรักษาโรค ผักริมรั้วกินได้ หรือไม้ดอกสวยงาม</p>
+              </div>
+            </article>
+            <article class="guide-step">
+              <span class="step-number">3</span>
+              <div class="step-text">
+                <h3>บันทึกและแชร์ข้อมูลความรู้</h3>
+                <p>ศึกษาคู่มือการดูแล วิธีปลูกง่ายๆ ในกระถาง และร่วมสนุกสะสมการ์ดพันธุ์ไม้เข้าสมุดสะสม</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="footer-brand" href="#home">
+          <span class="brand-icon">🌳</span>
+          <span><span class="brand-name">Little Roots</span><br><span class="brand-subtitle">Thai Botanical Garden</span></span>
+        </a>
+        <p class="footer-slogan">🍃 ต้นไม้แต่ละชนิด มีมากกว่าที่ตาคิด</p>
+        <div class="footer-plants" aria-label="ไอคอนพืชพรรณ"><span>🪴</span><span>🌸</span><span>🌼</span><span>🌿</span><span>🌾</span><span>🍀</span><span>🌷</span><span>🍃</span></div>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>เกี่ยวกับ Little Roots</h3>
+          <p>สารานุกรมและแหล่งเรียนรู้ธรรมชาติวิทยาสำหรับเยาวชน เชื่อมโยงความรู้เรื่องพืชสมุนไพร พืชอาหาร และความหลากหลายทางชีวภาพของไทย</p>
+          <div class="social-links"><a href="#">f</a><a href="#">◎</a><a href="#">▶</a><a href="#">☷</a></div>
+        </div>
+        <div class="footer-column">
+          <h3>สมุนไพรไทย</h3>
+          <a href="#herbs">สมุนไพรประจำบ้าน</a><a href="#herbs">สมุนไพรเฉพาะทาง</a><a href="#herbs">สมุนไพรบำรุงสุขภาพ</a><a href="#herbs">ตำรับยาสมุนไพรพื้นบ้าน</a>
+        </div>
+        <div class="footer-column">
+          <h3>พืชกินได้</h3>
+          <a href="#food">ผักพื้นบ้านและผักริมรั้ว</a><a href="#food">ผลไม้พื้นเมืองหายาก</a><a href="#food">เครื่องเทศและพืชแต่งกลิ่น</a><a href="#food">ผักสวนครัวปลูกง่าย</a>
+        </div>
+        <div class="footer-column">
+          <h3>พืชเศรษฐกิจ</h3>
+          <a href="#economic">พืชไร่และพืชแปรรูป</a><a href="#economic">พืชเส้นใยและงานจักสาน</a><a href="#economic">พืชสกัดและอุตสาหกรรม</a><a href="#economic">เกษตรผสมผสานสร้างอาชีพ</a>
+        </div>
+        <div class="footer-column">
+          <h3>ไม้ประดับ &amp; ถิ่นเดียว</h3>
+          <a href="#ornamental">ไม้ดอกไทยและกล้วยไม้</a><a href="#ornamental">ไม้มงคลและความเชื่อ</a><a href="#ornamental">ไม้จัดสวนในบ้าน</a><a href="#rare">พืชหายากและพืชถิ่นเดียว</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Little Roots Thai Botanical Garden. รวบรวมเพื่อการศึกษาและการเรียนรู้ธรรมชาติของเด็กไทย</span>
+        <nav><a href="#home">หน้าหลัก</a><a href="#food">พืชกินได้</a><a href="#economic">เศรษฐกิจ</a><a href="#">Contact</a><a href="#">Links</a></nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
