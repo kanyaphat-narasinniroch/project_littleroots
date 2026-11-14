@@ -1,0 +1,595 @@
+/* herbal.css — styles only for the plant listing page (herbal_1.html) */
+/* Breadcrumb / Back Bar */
+.breadcrumb-section {
+  background: #f2e7d0;
+  border-bottom: 1.5px solid #e3d2b3;
+  padding: 12px 0;
+}
+
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4b3e2b;
+  background: #fffbf2;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1.5px solid #d9c5a1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.back-home-link:hover {
+  background: #ffffff;
+  border-color: #204e33;
+  color: #204e33;
+  transform: translateX(-3px);
+}
+
+.current-crumb-trail {
+  font-size: 0.88rem;
+  color: #756752;
+  font-weight: 500;
+}
+
+/* Category Banner */
+.category-hero-banner {
+  /* background: linear-gradient(135deg, #f7ecd7 0%, #faeede 50%, #f4e2c6 100%); */
+  background: transparent;
+  border-bottom: none;
+  /* border-bottom: 2px solid #e6d3b3; */
+  padding: 38px 0 34px;
+  position: relative;
+}
+
+.cat-banner-inner {
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  background: linear-gradient(135deg, #ffffff 0%, #fef8fa 55%, #ffdbc7 100%);
+  /* background: linear-gradient(135deg, #f7ecd7 0%, #faeede 50%, #f4e2c6 100%); */
+  border: 2px solid #e6d3b3;
+  border-radius: 35px;          /* ความโค้งของมุม */
+  padding: 32px 36px;           /* ระยะห่างข้างในกล่อง */
+  box-shadow: 0 8px 20px rgba(110, 80, 40, 0.08);
+}
+
+.cat-banner-content {
+  max-width: 820px;
+}
+
+.cat-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.badge-cat-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 5px 14px;
+  background: #ffebd2;
+  border: 1.5px solid #f3a863;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #ad5004;
+}
+
+.badge-count-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: #ffffff;
+  border: 1.5px solid #dccbb1;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #204e33;
+}
+
+.cat-banner-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #223823;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.cat-banner-desc {
+  font-size: 1.02rem;
+  color: #556753;
+  line-height: 1.6;
+}
+
+.cat-banner-art {
+  width: 108px;
+  height: 108px;
+  background: #fff9ed;
+  border: 2px solid #ecd8ba;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  box-shadow: 0 8px 18px rgba(110, 80, 40, 0.08);
+  flex-shrink: 0;
+}
+
+/* Main Listing Layout: 2 Columns */
+.listing-layout-section {
+  padding: 42px 0 72px;
+}
+
+.listing-grid-container {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* Sidebar Filter */
+.filter-sidebar-card {
+  background: var(--card-bg);
+  border: 2px solid #e7d6bf;
+  border-radius: 22px;
+  padding: 24px 20px;
+  box-shadow: var(--shadow-card);
+  position: sticky;
+  top: 96px;
+}
+
+.filter-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed #ead8c1;
+  margin-bottom: 20px;
+}
+
+.filter-card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #273b25;
+  line-height: 1.2;
+}
+
+.filter-card-header span {
+  font-size: 0.78rem;
+  color: #798d78;
+  display: block;
+}
+
+.sidebar-search-box {
+  margin-bottom: 22px;
+}
+
+.sidebar-search-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #3f4e3c;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.sidebar-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-input-wrapper input {
+  width: 100%;
+  background: #faf6ee;
+  border: 1.5px solid #cfbfa6;
+  border-radius: 12px;
+  padding: 9px 38px 9px 14px;
+  font-family: var(--font-rounded);
+  font-size: 0.92rem;
+  color: #273b25;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-input-wrapper input:focus {
+  background: #ffffff;
+  border-color: #387b3e;
+  box-shadow: 0 0 0 3px rgba(56, 123, 62, 0.15);
+}
+
+.sidebar-search-icon {
+  position: absolute;
+  right: 12px;
+  color: #7c8e79;
+  pointer-events: none;
+  font-size: 1.05rem;
+}
+
+.filter-group {
+  margin-bottom: 22px;
+}
+
+.filter-group-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2a3c27;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-group-title small {
+  font-size: 0.75rem;
+  color: #839381;
+  font-weight: 500;
+}
+
+.filter-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.custom-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #4a5c48;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.15s ease;
+}
+
+.custom-checkbox-label:hover {
+  color: #204e33;
+}
+
+.custom-checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #387b3e;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-checkbox-label .badge-item-count {
+  margin-left: auto;
+  font-size: 0.76rem;
+  color: #8c9c8a;
+  background: #f4ecdc;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* Sidebar Friendly Character Helper Box */
+.sidebar-npc-helper {
+  margin-top: 26px;
+  background: #fbf7ee;
+  border: 2px solid #ecdac2;
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.helper-bubble {
+  flex: 1;
+  font-size: 0.82rem;
+  color: #3d503b;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.helper-sprite-wrap {
+  width: 44px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+/* Main Area Header & Sorting */
+.main-list-header {
+  background: #ffffff;
+  border: 2px solid #ebdcc5;
+  border-radius: 18px;
+  padding: 14px 22px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  box-shadow: 0 4px 14px rgba(70, 50, 20, 0.04);
+}
+
+.list-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.list-header-left h3 {
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #213c23;
+}
+
+.result-badge {
+  background: #edf7ec;
+  border: 1px solid #abd4a9;
+  color: #246a2a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 999px;
+}
+
+.list-sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sort-label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #728470;
+}
+
+.sort-pill-btn {
+  padding: 6px 14px;
+  background: #faf4e8;
+  border: 1.5px solid #dccbb1;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #4b3f2e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sort-pill-btn:hover {
+  background: #ffffff;
+  border-color: #387b3e;
+  color: #204e33;
+}
+
+.sort-pill-btn.active {
+  background: #204e33;
+  border-color: #204e33;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(32, 78, 51, 0.25);
+}
+
+/* Plant Card Grid (2-Column Format) */
+.plant-twocol-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.listing-plant-card {
+  background: #ffffff;
+  border: 2px solid #ebdcc5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: row;
+  transition: all 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.listing-plant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: #d96f18;
+}
+
+.card-square-art {
+  width: 140px;
+  min-width: 140px;
+  background: linear-gradient(180deg, #fef5e9 0%, #fbe8d0 100%);
+  border-right: 2px dashed #ebd3b6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 10px;
+  position: relative;
+}
+
+.card-art-emoji {
+  font-size: 3.4rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  transition: transform 0.2s ease;
+}
+
+.listing-plant-card:hover .card-art-emoji {
+  transform: scale(1.15) rotate(4deg);
+}
+
+.card-art-subtag {
+  margin-top: 10px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #a45308;
+  background: #ffe3c2;
+  border: 1px solid #f6c894;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-align: center;
+}
+
+.card-detail-body {
+  padding: 16px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-naming {
+  margin-bottom: 6px;
+}
+
+.plant-main-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #213c23;
+  line-height: 1.2;
+}
+
+.plant-sci-en {
+  font-size: 0.78rem;
+  color: #798a77;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.plant-brief {
+  font-size: 0.88rem;
+  color: #556753;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.plant-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.taste-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.taste-tag.taste-sweet  { background: #fff0d4; color: #b76800; border: 1px solid #ffd699; }
+.taste-tag.taste-bitter { background: #eaf5e6; color: #2e7323; border: 1px solid #cae4c4; }
+.taste-tag.taste-sour   { background: #fef8d9; color: #9c8008; border: 1px solid #f9ed9c; }
+.taste-tag.taste-spicy  { background: #ffe9e6; color: #c4321d; border: 1px solid #ffc2b9; }
+.taste-tag.taste-mild   { background: #eef3f9; color: #2f5f99; border: 1px solid #c9dcf2; }
+.taste-tag.taste-aroma  { background: #fbeefe; color: #872ba6; border: 1px solid #ebc2f5; }
+
+.part-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #637761;
+  background: #f2ebe0;
+  border: 1px solid #dfd3bf;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.card-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f0e4d2;
+  padding-top: 10px;
+}
+
+.card-bot-stat {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #927546;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.view-pill-btn {
+  padding: 6px 14px;
+  background: var(--brand-dark-green);
+  border: 1px solid #173b26;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(32, 78, 51, 0.2);
+}
+
+.view-pill-btn:hover {
+  background: #2b6743;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(32, 78, 51, 0.3);
+}
+
+
+/* Responsive (listing page) */
+@media (max-width: 1024px) {
+  .listing-grid-container {
+    grid-template-columns: 1fr;
+  }
+  .filter-sidebar-card {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .plant-twocol-grid {
+    grid-template-columns: 1fr;
+  }
+  .cat-banner-inner {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .cat-banner-art {
+    display: none;
+  }
+  .main-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Active menu pill: orange theme for the Edible category page */
+.nav-pill.active {
+  background: #fff3e0;
+  border-color: #e67e22;
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.18);
+}
+
+.nav-pill.active .nav-pill-title {
+  color: #b35300;
+}
+
+.nav-pill.active .nav-pill-sub {
+  color: #bf6d1e;
+}

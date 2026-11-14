@@ -7,75 +7,16 @@
 <!-- ฟอนต์ Prompt และ Mali สไตล์อบอุ่น เป็นมิตรกับเด็ก -->
 <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&amp;family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
+<link href="index.css" rel="stylesheet">
+<script>try{if(!sessionStorage.getItem("fonts-ready"))document.documentElement.classList.add("fonts-loading")}catch(e){document.documentElement.classList.add("fonts-loading")}</script>
 </head>
 <body id="top">
-<!-- Top Header Navigation (Little Roots Theme) -->
-<header class="top-header">
-<div class="container header-inner">
-<!-- Brand Logo -->
-<a class="brand-logo" href="#top">
-<svg class="logo-icon-svg" fill="none" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-<rect fill="#4B8C49" height="64" rx="16" width="64"></rect>
-<!-- Pixel Art Leaves -->
-<rect fill="#B3E678" height="8" width="8" x="28" y="14"></rect>
-<rect fill="#88D455" height="8" width="8" x="20" y="22"></rect>
-<rect fill="#88D455" height="8" width="8" x="36" y="22"></rect>
-<rect fill="#589F3A" height="8" width="8" x="28" y="22"></rect>
-<rect fill="#6FB743" height="8" width="8" x="12" y="30"></rect>
-<rect fill="#6FB743" height="8" width="8" x="44" y="30"></rect>
-<rect fill="#3D7527" height="8" width="8" x="28" y="30"></rect>
-<rect fill="#6C4724" height="14" width="8" x="28" y="38"></rect>
-<rect fill="#6C4724" height="8" width="8" x="20" y="44"></rect>
-<rect fill="#6C4724" height="8" width="8" x="36" y="44"></rect>
-</svg>
-<div class="brand-text">
-<span class="brand-title">Little Roots</span>
-<span class="brand-subtitle">Thai Botanical Garden</span>
-</div>
-</a>
-<!-- Categories Quick Navigation Inspired by Sample -->
-<nav class="header-nav">
-<a class="nav-pill active" href="#herbs">
-<span class="nav-pill-icon">🌿</span>
-<div class="nav-pill-text">
-<span class="nav-pill-title">สมุนไพร</span>
-<span class="nav-pill-sub">Medicinal</span>
-</div>
-</a>
-<a class="nav-pill" href="#food">
-<span class="nav-pill-icon">🥕</span>
-<div class="nav-pill-text">
-<span class="nav-pill-title">พืชกินได้</span>
-<span class="nav-pill-sub">Edible</span>
-</div>
-</a>
-<a class="nav-pill" href="#economic">
-<span class="nav-pill-icon">🌾</span>
-<div class="nav-pill-text">
-<span class="nav-pill-title">พืชเศรษฐกิจ</span>
-<span class="nav-pill-sub">Economic</span>
-</div>
-</a>
-<a class="nav-pill" href="#ornamental">
-<span class="nav-pill-icon">🌸</span>
-<div class="nav-pill-text">
-<span class="nav-pill-title">ไม้ประดับ</span>
-<span class="nav-pill-sub">Ornamental</span>
-</div>
-</a>
-<a class="nav-pill" href="#rare">
-<span class="nav-pill-icon">🌺</span>
-<div class="nav-pill-text">
-<span class="nav-pill-title">พืชถิ่นเดียว</span>
-<span class="nav-pill-sub">Endemic</span>
-</div>
-</a>
-</nav>
-</div>
-</header>
+<!-- Shared header (header.js) -->
+<div id="site-header"></div>
+<script src="header.js"></script>
 <!-- Hero Section with Panorama RPG Banner from Inspiration Image -->
 <section class="hero-banner-section">
-<img alt="Little Roots Botanical Garden Banner" class="hero-banner-img" src="img/ban1.png">
+<img alt="Little Roots Botanical Garden Banner" class="hero-banner-img" src="img/ban1.webp">
 <div class="hero-banner-overlay">
 <div class="hero-content-wrapper">
 <!-- Search Engine with Round Pixel Garden Aesthetic -->
@@ -488,106 +429,9 @@
 </div>
 </section>
 </main>
-<!-- Footer (Warm Natural Little Roots Botanical Theme) -->
-<footer class="little-roots-footer">
-<div class="container">
-<!-- Top Strip: Logo, Slogan, and Pixel Plants Sprite Banner -->
-<div class="footer-top-strip">
-<div class="footer-branding">
-<svg fill="none" height="36" viewBox="0 0 64 64" width="36">
-<rect fill="#387B3E" height="64" rx="14" width="64"></rect>
-<rect fill="#B3E678" height="8" width="8" x="28" y="16"></rect>
-<rect fill="#88D455" height="8" width="8" x="20" y="24"></rect>
-<rect fill="#88D455" height="8" width="8" x="36" y="24"></rect>
-<rect fill="#3D7527" height="8" width="8" x="28" y="24"></rect>
-<rect fill="#6C4724" height="16" width="8" x="28" y="32"></rect>
-</svg>
-<div>
-<h4 style="font-size: 1.3rem; font-weight: 700; color: rgb(35, 59, 34); line-height: 1.1;">Little Roots</h4>
-<span style="font-size: 0.78rem; color: rgb(105, 125, 103);">Thai Botanical Garden</span>
-</div>
-</div>
-<div class="footer-tagline-quote">
-<span>🍃 ต้นไม้แต่ละชนิด มีมากกว่าที่ตาคิด</span>
-</div>
-<!-- 8-Bit Pixel Flora Mini Sprites Row -->
-<div class="pixel-plant-icons-row" title="คอลเลกชันต้นไม้พิกเซล">
-<span class="pixel-mini-item">🪴</span>
-<span class="pixel-mini-item">🌸</span>
-<span class="pixel-mini-item">🌼</span>
-<span class="pixel-mini-item">🌿</span>
-<span class="pixel-mini-item">🌾</span>
-<span class="pixel-mini-item">🍀</span>
-<span class="pixel-mini-item">🌷</span>
-<span class="pixel-mini-item">🍃</span>
-</div>
-</div>
-<!-- Links Columns -->
-<div class="footer-columns-grid">
-<div class="footer-col">
-<h5>เกี่ยวกับ Little Roots</h5>
-<p style="font-size: 0.88rem; color: rgb(97, 115, 94); line-height: 1.6;">
-            สารานุกรมและแหล่งเรียนรู้ธรรมชาติวิทยาสำหรับเยาวชน เชื่อมโยงความรู้เรื่องพืชสมุนไพร พืชอาหาร และความหลากหลายทางชีวภาพของไทย
-          </p>
-<div class="social-pills-row">
-<a class="social-circle-btn" href="#" title="Facebook">f</a>
-<a class="social-circle-btn" href="#" title="Instagram">📷</a>
-<a class="social-circle-btn" href="#" title="YouTube">▶</a>
-<a class="social-circle-btn" href="#" title="Website">🌐</a>
-</div>
-</div>
-<div class="footer-col">
-<h5>สมุนไพรไทย</h5>
-<ul>
-<li><a href="#herb-home">สมุนไพรประจำบ้าน</a></li>
-<li><a href="#herb-special">สมุนไพรเฉพาะทาง</a></li>
-<li><a href="#herb-health">สมุนไพรบำรุงสุขภาพ</a></li>
-<li><a href="#herbs">ตำรับยาสมุนไพรพื้นบ้าน</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h5>พืชกินได้</h5>
-<ul>
-<li><a href="#food-veg">ผักพื้นบ้านและผักริมรั้ว</a></li>
-<li><a href="#food-fruit">ผลไม้พื้นเมืองหายาก</a></li>
-<li><a href="#food-spice">เครื่องเทศและพืชแต่งกลิ่น</a></li>
-<li><a href="#food">ผักสวนครัวปลูกง่าย</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h5>พืชเศรษฐกิจ</h5>
-<ul>
-<li><a href="#eco-field">พืชไร่และพืชแปรรูป</a></li>
-<li><a href="#eco-fiber">พืชเส้นใยและงานจักสาน</a></li>
-<li><a href="#eco-industry">พืชสกัดและอุตสาหกรรม</a></li>
-<li><a href="#economic">เกษตรผสมผสานสร้างอาชีพ</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h5>ไม้ประดับ &amp; ถิ่นเดียว</h5>
-<ul>
-<li><a href="#orn-flower">ไม้ดอกไทยและกล้วยไม้</a></li>
-<li><a href="#orn-lucky">ไม้มงคลและความเชื่อ</a></li>
-<li><a href="#orn-garden">ไม้จัดสวนในบ้าน</a></li>
-<li><a href="#rare">พืชหายากและพืชถิ่นเดียว</a></li>
-</ul>
-</div>
-</div>
-<!-- Bottom Copyright & Navigation Links -->
-<div class="footer-bottom-bar">
-<div>
-          © 2025 Little Roots Thai Botanical Garden. รวบรวมเพื่อการศึกษาและการเรียนรู้ธรรมชาติของเด็กไทย
-        </div>
-<div style="display: flex; gap: 16px;">
-<a href="#top" style="color: rgb(97, 115, 94);">หน้าหลัก</a>
-<a href="#food" style="color: rgb(97, 115, 94);">พืชกินได้</a>
-<a href="#economic" style="color: rgb(97, 115, 94);">เศรษฐกิจ</a>
-<a href="#" style="color: rgb(97, 115, 94);">Contact</a>
-<a href="#" style="color: rgb(97, 115, 94);">Links</a>
-</div>
-</div>
-</div>
-</footer>
+<!-- Shared footer (footer.js) -->
+<div id="site-footer"></div>
+<script src="footer.js"></script>
 
 
 </body></html>
