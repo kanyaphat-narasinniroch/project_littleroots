@@ -3,423 +3,1498 @@
 <html lang="th"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>พืชกินได้ (Edible Plants) - Little Roots สารานุกรมสวนพันธุ์ไม้สำหรับเด็ก</title>
+<title>พืชสมุนไพรไทย (Medicinal Plants) - Little Roots สวนพฤกษศาสตร์สำหรับเด็ก</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&amp;family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
-<link href="herbal.css" rel="stylesheet"/>
-<script>try{if(!sessionStorage.getItem("fonts-ready"))document.documentElement.classList.add("fonts-loading")}catch(e){document.documentElement.classList.add("fonts-loading")}</script>
+<!-- ฟอนต์ Prompt และ Mali สไตล์อบอุ่น เป็นมิตรกับเด็ก -->
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&amp;family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+    /* Reset & Theme Variables */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-warm: #f6eedb;
+      --bg-cream: #faf5ea;
+      --card-bg: #fffdfa;
+      --text-main: #2d3b2d;
+      --text-muted: #5e6b5d;
+      --brand-green: #387b3e;
+      --brand-forest: #204e33;
+      --brand-light-green: #48a650;
+      --brand-accent: #e8a838;
+      --brand-herb: #2e7d32;
+      --brand-herb-soft: #eaf5eb;
+      --brand-herb-border: #bfe3c2;
+      --btn-warm: #ebdcb9;
+      --btn-hover: #dfcaa2;
+      --border-warm: #eadbc2;
+      --border-soft: #f0e6d6;
+      --shadow-card: 0 10px 24px -4px rgba(95, 75, 45, 0.08), 0 4px 10px -2px rgba(60, 45, 20, 0.04);
+      --shadow-hover: 0 16px 32px -4px rgba(85, 65, 35, 0.14), 0 6px 14px -2px rgba(60, 45, 20, 0.07);
+      --font-rounded: 'Mali', 'Prompt', cursive, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-rounded);
+      background-color: var(--bg-warm);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Navigation Bar */
+    .top-header {
+      background-color: #f7efe1;
+      border-bottom: 2px solid #ecdcc4;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon-svg {
+      width: 44px;
+      height: 44px;
+      filter: drop-shadow(0 2px 4px rgba(60, 90, 50, 0.15));
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #213c23;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #6a8267;
+      letter-spacing: 0.2px;
+    }
+
+    /* Header Nav Pills */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      background: #fdfbf7;
+      border: 1.5px solid #e7d8c0;
+      border-radius: 999px;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+    }
+
+    .nav-pill:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+      border-color: #387b3e;
+      box-shadow: 0 4px 10px rgba(56, 123, 62, 0.12);
+    }
+
+    .nav-pill.active {
+      background: #204e33;
+      border-color: #1b4332;
+      box-shadow: 0 4px 12px rgba(32, 78, 51, 0.28);
+    }
+
+    .nav-pill.active .nav-pill-title {
+      color: #ffffff;
+    }
+
+    .nav-pill.active .nav-pill-sub {
+      color: #d1ebd0;
+    }
+
+    .nav-pill-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+      display: inline-block;
+      image-rendering: pixelated;
+    }
+
+    .nav-pill-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .nav-pill-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #273828;
+    }
+
+    .nav-pill-sub {
+      font-size: 0.72rem;
+      color: #798d78;
+      font-weight: 500;
+    }
+
+    /* Breadcrumb / Back button bar */
+    .breadcrumb-section {
+      padding: 16px 0 8px;
+    }
+
+    .back-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #fdfbf7;
+      border: 1.5px solid #e2d2b8;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #3f553a;
+      transition: all 0.2s ease;
+    }
+
+    .back-home-link:hover {
+      background: #204e33;
+      color: #ffffff;
+      border-color: #204e33;
+      transform: translateX(-3px);
+    }
+
+    /* Category Hero Banner */
+    .category-banner-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f4fbf4 100%);
+      border: 2px solid #cde4cf;
+      border-radius: 24px;
+      padding: 32px 36px;
+      margin-top: 10px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .category-banner-card::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(56, 123, 62, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .banner-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge-category-pill {
+      background: #eaf5eb;
+      color: #204e33;
+      border: 1.5px solid #bfe3c2;
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-count-pill {
+      background: #eef7ed;
+      color: #27692c;
+      border: 1.5px solid #bcdcbc;
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .banner-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #253924;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .banner-title span {
+      color: #27692c;
+    }
+
+    .banner-desc {
+      font-size: 0.98rem;
+      color: #556753;
+      max-width: 780px;
+      line-height: 1.6;
+    }
+
+    .banner-pixel-deco {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .deco-flower-box {
+      width: 74px;
+      height: 74px;
+      background: #fff;
+      border: 2px solid #ecd8c2;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.3rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      animation: gentleFloat 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes gentleFloat {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-6px) rotate(4deg); }
+    }
+
+    /* Main Listing Layout: 2 Columns */
+    .listing-layout {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 28px;
+      margin-bottom: 72px;
+      align-items: start;
+    }
+
+    /* Left Sidebar Filter Card */
+    .sidebar-filter-card {
+      background: var(--card-bg);
+      border: 2px solid #eadbc2;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+      position: sticky;
+      top: 96px;
+    }
+
+    .filter-header-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #213c23;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 14px;
+      border-bottom: 2px dashed #eadbc2;
+      margin-bottom: 18px;
+    }
+
+    .filter-search-box {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .filter-search-input {
+      width: 100%;
+      background: #faf6ee;
+      border: 1.5px solid #d8c7ad;
+      border-radius: 999px;
+      padding: 10px 40px 10px 16px;
+      font-family: var(--font-rounded);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #2b3b28;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .filter-search-input:focus {
+      background: #ffffff;
+      border-color: #387b3e;
+      box-shadow: 0 0 0 3px rgba(56, 123, 62, 0.15);
+    }
+
+    .filter-search-icon {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.95rem;
+      color: #798b76;
+      pointer-events: none;
+    }
+
+    .filter-group {
+      margin-bottom: 22px;
+    }
+
+    .filter-group-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #2d422a;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .custom-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #495a46;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.15s ease;
+    }
+
+    .custom-checkbox-label:hover {
+      color: #1e4521;
+    }
+
+    .custom-checkbox-label input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #b8c8b4;
+      border-radius: 5px;
+      background: #ffffff;
+      display: grid;
+      place-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .custom-checkbox-label input[type="checkbox"]:checked {
+      background-color: #387b3e;
+      border-color: #387b3e;
+    }
+
+    .custom-checkbox-label input[type="checkbox"]:checked::before {
+      content: "✔";
+      font-size: 11px;
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    /* Sidebar NPC Guide Bubble */
+    .sidebar-npc-widget {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 2px dashed #eadbc2;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-bubble {
+      background: #ffffff;
+      border: 2px solid #3c6f37;
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #223f20;
+      line-height: 1.45;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+
+    .sidebar-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -9px;
+      left: 28px;
+      border-width: 9px 8px 0 8px;
+      border-style: solid;
+      border-color: #ffffff transparent transparent transparent;
+      display: block;
+      width: 0;
+    }
+
+    .sidebar-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 26px;
+      border-width: 11px 10px 0 10px;
+      border-style: solid;
+      border-color: #3c6f37 transparent transparent transparent;
+      display: block;
+      width: 0;
+    }
+
+    .sidebar-npc-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-left: 10px;
+    }
+
+    .npc-mini-sprite {
+      width: 38px;
+      height: 48px;
+      image-rendering: pixelated;
+    }
+
+    .npc-mini-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #4b6845;
+    }
+
+    /* Main Content Area */
+    .content-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      background: #faf3e4;
+      border: 2px solid #ecd8c0;
+      border-radius: 18px;
+      padding: 14px 20px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .content-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .content-category-heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #204e33;
+    }
+
+    .species-found-badge {
+      background: #ffffff;
+      border: 1.5px solid #d4c1a5;
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #635032;
+    }
+
+    .content-sort-options {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sort-label {
+      font-size: 0.82rem;
+      color: #6a7c67;
+      font-weight: 600;
+    }
+
+    .sort-btn {
+      padding: 5px 12px;
+      background: #fbf8f0;
+      border: 1.5px solid #dfcfb4;
+      border-radius: 999px;
+      font-family: var(--font-rounded);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #4a5c46;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .sort-btn.active,
+    .sort-btn:hover {
+      background: #204e33;
+      color: #ffffff;
+      border-color: #204e33;
+    }
+
+    /* 2-Column Plant Cards Grid (6 Rows = 12 Cards) */
+    .plants-listing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .listing-plant-card {
+      background: #ffffff;
+      border: 2px solid #e8dbca;
+      border-radius: 20px;
+      padding: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      box-shadow: 0 6px 18px -2px rgba(85, 65, 35, 0.06);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .listing-plant-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: #387b3e;
+    }
+
+    /* Pixel Thumbnail Wrap on Left */
+    .plant-thumb-box {
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(135deg, #f2f9f1 0%, #e5f4e3 100%);
+      border: 2px solid #cbe3ca;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plant-thumb-box svg {
+      image-rendering: pixelated;
+      filter: drop-shadow(0 4px 6px rgba(40, 90, 50, 0.16));
+      transition: transform 0.2s ease;
+    }
+
+    .listing-plant-card:hover .plant-thumb-box svg {
+      transform: scale(1.12) rotate(3deg);
+    }
+
+    .card-info-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .plant-card-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .plant-thai-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #213c23;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .plant-sci-name {
+      font-size: 0.74rem;
+      font-style: italic;
+      color: #839780;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 5px;
+    }
+
+    .plant-brief {
+      font-size: 0.82rem;
+      color: #556752;
+      line-height: 1.45;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .card-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .mini-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    .tag-taste {
+      background: #fbf0dc;
+      color: #92580a;
+      border: 1px solid #ebd3a7;
+    }
+
+    .tag-property-cool {
+      background: #eaf5fc;
+      color: #1a6b99;
+      border: 1px solid #c2e2f5;
+    }
+
+    .tag-property-hot {
+      background: #fdeee9;
+      color: #b5381d;
+      border: 1px solid #fad2c6;
+    }
+
+    .tag-property-warm {
+      background: #fef7e6;
+      color: #9c6c14;
+      border: 1px solid #f9e3ab;
+    }
+
+    .view-info-btn {
+      padding: 6px 14px;
+      background: #204e33;
+      color: #ffffff;
+      border: 1.5px solid #183e27;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .view-info-btn:hover {
+      background: #2c6844;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(32, 78, 51, 0.25);
+    }
+
+    /* Footer: Little Roots natural theme with sprite strip */
+    .little-roots-footer {
+      background-color: #ebe0cb;
+      border-top: 2px solid #dfcfb2;
+      color: #475a45;
+      padding: 44px 0 28px;
+    }
+
+    .footer-top-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px dashed #d5c3a3;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-branding {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-tagline-quote {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #5c4524;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pixel-plant-icons-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pixel-mini-item {
+      font-size: 1.6rem;
+      line-height: 1;
+      padding: 4px;
+      background: #f7efe0;
+      border: 1px solid #d4c0a0;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .pixel-mini-item:hover {
+      transform: translateY(-4px) scale(1.15);
+    }
+
+    .footer-columns-grid {
+      display: grid;
+      grid-template-columns: 1.6fr repeat(4, 1fr);
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+
+    .footer-col h5 {
+      color: #273b25;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+      color: #5a6e57;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .footer-col ul li a:hover {
+      color: #27692c;
+      padding-left: 4px;
+    }
+
+    .social-pills-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .social-circle-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #dfcfb2;
+      border: 1px solid #cbb898;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3b4e39;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .social-circle-btn:hover {
+      background: #387b3e;
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid #d8c6a6;
+      padding-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      color: #728470;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .listing-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-filter-card {
+        position: static;
+      }
+      .plants-listing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-columns-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .plants-listing-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-nav {
+        display: none;
+      }
+      .category-banner-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .banner-pixel-deco {
+        display: none;
+      }
+      .footer-top-strip {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+</style>
 </head>
-<body data-nav="food">
-<!-- Shared header (header.js) -->
-<div id="site-header"></div>
-<script src="header.js"></script>
-<!-- Breadcrumb / Back Bar -->
-<section class="breadcrumb-section">
-<div class="container breadcrumb-container">
-<a class="back-home-link" href="index.html">
-<span>←</span> ย้อนกลับไปหน้าแรก / Back to Home
-    </a>
-<div class="current-crumb-trail">
-<span>หน้าแรก</span> &gt; <span>หมวดหมู่พืชพันธุ์</span> &gt; <strong style="color: #b35300;">พืชกินได้ (Edible Plants)</strong>
+<body>
+<!-- Top Header Navigation (Little Roots Theme) -->
+<header class="top-header">
+<div class="container header-inner">
+<!-- Brand Logo -->
+<a class="brand-logo" href="#">
+<svg class="logo-icon-svg" fill="none" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#4B8C49" height="64" rx="16" width="64"></rect>
+<!-- Pixel Art Leaves -->
+<rect fill="#B3E678" height="8" width="8" x="28" y="14"></rect>
+<rect fill="#88D455" height="8" width="8" x="20" y="22"></rect>
+<rect fill="#88D455" height="8" width="8" x="36" y="22"></rect>
+<rect fill="#589F3A" height="8" width="8" x="28" y="22"></rect>
+<rect fill="#6FB743" height="8" width="8" x="12" y="30"></rect>
+<rect fill="#6FB743" height="8" width="8" x="44" y="30"></rect>
+<rect fill="#3D7527" height="8" width="8" x="28" y="30"></rect>
+<rect fill="#6C4724" height="14" width="8" x="28" y="38"></rect>
+<rect fill="#6C4724" height="8" width="8" x="20" y="44"></rect>
+<rect fill="#6C4724" height="8" width="8" x="36" y="44"></rect>
+</svg>
+<div class="brand-text">
+<span class="brand-title">Little Roots</span>
+<span class="brand-subtitle">Thai Botanical Garden</span>
 </div>
+</a>
+<!-- Categories Quick Navigation (Active highlighted pill is 'สมุนไพร') -->
+<nav class="header-nav">
+<a class="nav-pill active" href="#">
+<span class="nav-pill-icon">🌿</span>
+<div class="nav-pill-text">
+<span class="nav-pill-title">สมุนไพร</span>
+<span class="nav-pill-sub">Medicinal</span>
 </div>
-</section>
-<!-- Category Banner Header -->
-<section class="category-hero-banner">
-<div class="container cat-banner-inner">
-<div class="cat-banner-content">
-<div class="cat-badge-wrap">
-<span class="badge-cat-highlight">🥕 หมวดหมู่สารานุกรมธรรมชาติ</span>
+</a>
+<a class="nav-pill" href="#">
+<span class="nav-pill-icon">🥕</span>
+<div class="nav-pill-text">
+<span class="nav-pill-title">พืชกินได้</span>
+<span class="nav-pill-sub">Edible</span>
+</div>
+</a>
+<a class="nav-pill" href="#">
+<span class="nav-pill-icon">🌾</span>
+<div class="nav-pill-text">
+<span class="nav-pill-title">พืชเศรษฐกิจ</span>
+<span class="nav-pill-sub">Economic</span>
+</div>
+</a>
+<a class="nav-pill" href="#">
+<span class="nav-pill-icon">🌸</span>
+<div class="nav-pill-text">
+<span class="nav-pill-title">ไม้ประดับ</span>
+<span class="nav-pill-sub">Ornamental</span>
+</div>
+</a>
+<a class="nav-pill" href="#">
+<span class="nav-pill-icon">🌺</span>
+<div class="nav-pill-text">
+<span class="nav-pill-title">พืชถิ่นเดียว</span>
+<span class="nav-pill-sub">Endemic</span>
+</div>
+</a>
+</nav>
+</div>
+</header>
+<!-- Breadcrumb / Back button bar -->
+<div class="container breadcrumb-section">
+<a class="back-home-link" href="#">
+<span>← ย้อนกลับไปหน้าแรก / Back to Home</span>
+</a>
+</div>
+<!-- Main Body Container -->
+<div class="container">
+<!-- Category Hero Banner -->
+<section class="category-banner-card">
+<div>
+<div class="banner-badge-row">
+<span class="badge-category-pill">🌿 หมวดหมู่: พืชสมุนไพรไทย (Medicinal Herbs)</span>
 <span class="badge-count-pill">✨ 12 ชนิด พืชในหมวดหมู่นี้</span>
 </div>
-<h1 class="cat-banner-title">หมวดหมู่: พืชกินได้ (Edible Plants)</h1>
-<p class="cat-banner-desc">
-        เรียนรู้ความมหัศจรรย์ของผักพื้นบ้านริมรั้ว ผลไม้เขตร้อนรสเลิศ และเครื่องเทศกลิ่นหอมคู่ครัวไทย ปลูกง่าย ปลอดสารพิษ อุดมด้วยวิตามินและสารอาหารสำคัญต่อการเจริญเติบโตของร่างกาย
+<h1 class="banner-title">รวมพันธุ์<span>พืชสมุนไพรไทย</span>และสรรพคุณทางยา</h1>
+<p class="banner-desc">
+        เรียนรู้คุณค่าพฤกษศาสตร์ยาไทย สรรพคุณทางยา รสยา และการดูแลสุขภาพเบื้องต้นอย่างปลอดภัย คัดสรรสมุนไพรประจำบ้านและพืชยา 12 ชนิด
       </p>
 </div>
-<div class="cat-banner-art">
-      🧺
-    </div>
+<div class="banner-pixel-deco">
+<div class="deco-flower-box" title="สมุนไพรไทย">🌿</div>
+<div class="deco-flower-box" style="animation-delay: -1.5s;" title="พืชสมุนไพร">🪴</div>
 </div>
 </section>
-<!-- Main Listing Layout: 2-Column (Sidebar + Plants Grid) -->
-<main class="listing-layout-section">
-<div class="container listing-grid-container">
-<!-- Left Sidebar: Filter & Search -->
-<aside class="filter-sidebar-card">
-<div class="filter-card-header">
-<div style="font-size: 1.6rem;">🔍</div>
-<div>
-<h3>ตัวกรองและค้นหา</h3>
-<span>Filter &amp; Search Plants</span>
+<!-- Two-Column Body Layout -->
+<div class="listing-layout">
+<!-- Left Sidebar: Filter & Guide -->
+<aside class="sidebar-filter-card">
+<h3 class="filter-header-title">
+<span>🔍</span>
+<span>ค้นหาพืชสมุนไพรไทย</span>
+</h3>
+<!-- Filter Search Input -->
+<div class="filter-search-box">
+<input class="filter-search-input" placeholder="พิมพ์ชื่อสมุนไพร / สรรพคุณ..." type="text"/>
+<span class="filter-search-icon">🔎</span>
 </div>
-</div>
-<!-- Search Input -->
-<div class="sidebar-search-box">
-<label class="sidebar-search-label" for="filter-search-input">ค้นหาพืชกินได้</label>
-<div class="sidebar-input-wrapper">
-<input id="filter-search-input" placeholder="พิมพ์ชื่อพืช เช่น ตำลึง, มะละกอ..." type="text"/>
-<span class="sidebar-search-icon">🔎</span>
-</div>
-</div>
-<!-- Filter Sub-categories -->
+<!-- Sub-Category Filter -->
 <div class="filter-group">
-<div class="filter-group-title">
-<span>ประเภทย่อย (Sub-Category)</span>
-<small>ทั้งหมด</small>
-</div>
-<div class="filter-options-list">
+<h4 class="filter-group-title">🌱 กลุ่มย่อย (Sub-Category)</h4>
+<div class="filter-checkbox-list">
 <label class="custom-checkbox-label">
 <input checked="" type="checkbox"/>
-<span>ผักพื้นบ้านริมรั้ว / Local Veggies</span>
-<span class="badge-item-count">6</span>
+<span>สมุนไพรประจำบ้าน (Household Remedies)</span>
 </label>
 <label class="custom-checkbox-label">
 <input checked="" type="checkbox"/>
-<span>ผลไม้พื้นเมือง / Native Fruits</span>
-<span class="badge-item-count">3</span>
+<span>สมุนไพรเฉพาะทาง (Specialist Herbs)</span>
 </label>
 <label class="custom-checkbox-label">
 <input checked="" type="checkbox"/>
-<span>เครื่องเทศแต่งกลิ่น / Spices &amp; Seasoning</span>
-<span class="badge-item-count">3</span>
+<span>เพื่อบำรุงสุขภาพ (Wellness)</span>
 </label>
 </div>
 </div>
-<!-- Filter Part Used -->
+<!-- Part Used Filter -->
 <div class="filter-group">
-<div class="filter-group-title">
-<span>ส่วนที่ใช้ประโยชน์ (Part Used)</span>
-</div>
-<div class="filter-options-list">
+<h4 class="filter-group-title">🌿 ส่วนที่ใช้ประโยชน์ (Part Used)</h4>
+<div class="filter-checkbox-list">
 <label class="custom-checkbox-label">
 <input checked="" type="checkbox"/>
-<span>ใบ / Leaf</span>
-<span class="badge-item-count">6</span>
+<span>ใบและยอดอ่อน (Leaves &amp; Shoots)</span>
 </label>
 <label class="custom-checkbox-label">
-<input checked="" type="checkbox"/>
-<span>ผล / Fruit</span>
-<span class="badge-item-count">4</span>
+<input type="checkbox"/>
+<span>เหง้าและราก (Rhizomes &amp; Roots)</span>
 </label>
 <label class="custom-checkbox-label">
-<input checked="" type="checkbox"/>
-<span>ยอด / Shoot</span>
-<span class="badge-item-count">3</span>
+<input type="checkbox"/>
+<span>ดอกและเกสร (Flowers &amp; Pollen)</span>
 </label>
 <label class="custom-checkbox-label">
-<input checked="" type="checkbox"/>
-<span>รากและหัว / Root &amp; Tuber</span>
-<span class="badge-item-count">1</span>
+<input type="checkbox"/>
+<span>ผลและเมล็ด (Fruits &amp; Seeds)</span>
 </label>
 </div>
 </div>
-<!-- Pixel NPC Guide Helper at Sidebar bottom -->
-<div class="sidebar-npc-helper">
-<div class="helper-sprite-wrap">
-<svg fill="none" height="48" viewbox="0 0 32 40" width="44" xmlns="http://www.w3.org/2000/svg">
+<!-- Friendly Pixel-Art Guide NPC Character -->
+<div class="sidebar-npc-widget">
+<div class="sidebar-bubble">
+          "สมุนไพรแต่ละชนิดมีรสยาเฉพาะตัว การใช้ยาแผนไทยต้องคำนึงถึงขนาดและวิธีใช้ที่ถูกต้อง!"
+        </div>
+<div class="sidebar-npc-row">
+<!-- Pixel Avatar NPC Sprite -->
+<svg class="npc-mini-sprite" fill="none" viewbox="0 0 32 40" xmlns="http://www.w3.org/2000/svg">
 <rect fill="#2b1d0c" height="8" width="16" x="8" y="2"></rect>
+<rect fill="#2b1d0c" height="8" width="4" x="6" y="6"></rect>
+<rect fill="#2b1d0c" height="8" width="4" x="22" y="6"></rect>
 <rect fill="#ffd5b5" height="12" width="16" x="8" y="8"></rect>
 <rect fill="#1b1b1b" height="4" width="2" x="10" y="12"></rect>
 <rect fill="#1b1b1b" height="4" width="2" x="18" y="12"></rect>
 <rect fill="#d95763" height="2" width="4" x="13" y="16"></rect>
-<rect fill="#e67e22" height="12" width="20" x="6" y="20"></rect>
+<rect fill="#387b3e" height="12" width="20" x="6" y="20"></rect>
+<rect fill="#ffccaa" height="4" width="8" x="12" y="20"></rect>
+<rect fill="#ffd5b5" height="6" width="4" x="24" y="16"></rect>
+<rect fill="#ffd5b5" height="6" width="4" x="2" y="22"></rect>
 <rect fill="#2b4263" height="8" width="6" x="8" y="32"></rect>
 <rect fill="#2b4263" height="8" width="6" x="18" y="32"></rect>
 </svg>
+<div>
+<div class="npc-mini-name">พี่นักพฤกษศาสตร์น้อย</div>
+<span style="font-size: 0.72rem; color: #789075;">Botanist Guide</span>
 </div>
-<div class="helper-bubble">
-          “ผักผลไม้ริมรั้วทั้งอร่อยและมีประโยชน์เต็มเปี่ยม! ลองคลิกดูสูตรเมนูได้นะ”
-        </div>
+</div>
 </div>
 </aside>
-<!-- Main Content Area: Header & 2-Column Plant Cards Grid -->
-<section>
-<!-- Results & Sorting Header -->
-<div class="main-list-header">
-<div class="list-header-left">
-<h3>หมวดหมู่: พืชกินได้</h3>
-<span class="result-badge">ค้นพบ 12 ชนิด / 12 species found</span>
+<!-- Main Content Area: Header Bar + 2-Column Cards Grid -->
+<main>
+<!-- Content Top Header Bar -->
+<div class="content-header-bar">
+<div class="content-header-left">
+<h2 class="content-category-heading">หมวดหมู่: พืชสมุนไพรไทย</h2>
+<span class="species-found-badge">ค้นพบ 12 ชนิด / 12 species found</span>
 </div>
-<div class="list-sort-controls">
-<span class="sort-label">เรียงลำดับ:</span>
-<button class="sort-pill-btn active" type="button">ยอดนิยม (Popular)</button>
-<button class="sort-pill-btn" type="button">A-Z ก-ฮ</button>
+<div class="content-sort-options">
+<span class="sort-label">เรียงตาม:</span>
+<button class="sort-btn active" type="button">A-Z</button>
+<button class="sort-btn" type="button">Popular</button>
 </div>
 </div>
-<!-- 2-Column Plant Card Grid (12 Edible Plants) -->
-<div class="plant-twocol-grid">
-<!-- Card 1: ชะอม -->
+<!-- 2-Column Grid (6 Rows, 12 Plants) -->
+<div class="plants-listing-grid">
+<!-- 1. ฟ้าทะลายโจร -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🌿</span>
-<span class="card-art-subtag">ผักริมรั้ว</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#204e33" height="15" width="2" x="11" y="7"></rect>
+<rect fill="#387b3e" height="5" rx="1" width="5" x="6" y="8"></rect>
+<rect fill="#4fa545" height="5" rx="1" width="5" x="13" y="11"></rect>
+<rect fill="#387b3e" height="5" rx="1" width="5" x="6" y="14"></rect>
+<rect fill="#6fb743" height="3" width="3" x="10" y="4"></rect>
+<rect fill="#ffffff" height="2" width="2" x="11" y="2"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">ชะอม</h4>
-<span class="plant-sci-en">Cha-om (Acacia pennata)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">ฟ้าทะลายโจร</h3>
 </div>
-<p class="plant-brief">ยอดอ่อนมีรสมันและกลิ่นฉุนเฉพาะตัว ยอดนิยมนำไปทอดไข่ชะอมคู่กับน้ำพริกกะปิ</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-bitter">รสมันฉุน</span>
-<span class="part-tag">ส่วนที่กิน: ยอด/ใบอ่อน</span>
+<div class="plant-sci-name">Fah Talai Jone / Andrographis paniculata</div>
+<p class="plant-brief">แก้ไข้หวัด บรรเทาอาการเจ็บคอ เสริมภูมิคุ้มกัน และต้านการอักเสบของระบบทางเดินหายใจ</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสขม</span>
+<span class="mini-tag tag-property-cool">ฤทธิ์เย็น</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ วิตามินเอสูง</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 2: ผักหวานป่า -->
+<!-- 2. ขิง -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🌱</span>
-<span class="card-art-subtag">ผักป่าธรรมชาติ</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#c99859" height="7" rx="2" width="10" x="7" y="13"></rect>
+<rect fill="#b88344" height="6" rx="2" width="6" x="4" y="11"></rect>
+<rect fill="#b88344" height="5" rx="2" width="5" x="15" y="11"></rect>
+<rect fill="#52993e" height="10" width="2" x="9" y="3"></rect>
+<rect fill="#61b34a" height="7" width="2" x="13" y="6"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">ผักหวานป่า</h4>
-<span class="plant-sci-en">Pak-Waan (Melientha suavis)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">ขิง</h3>
 </div>
-<p class="plant-brief">ราชินีผักป่ารสหวานตามธรรมชาติ กรอบอร่อย เหมาะสำหรับแกงเลียงและต้มจืดหมูสับ</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-sweet">รสหวานกรอบ</span>
-<span class="part-tag">ส่วนที่กิน: ยอดอ่อน</span>
+<div class="plant-sci-name">Ginger / Zingiber officinale</div>
+<p class="plant-brief">ขับลม แก้ท้องอืด ท้องเฟ้อ ช่วยย่อยอาหาร กระตุ้นการไหลเวียนเลือด และบรรเทาอาการคลื่นไส้</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสเผ็ดร้อน</span>
+<span class="mini-tag tag-property-hot">ฤทธิ์ร้อน</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ แคลเซียมสูง</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 3: ตำลึง -->
+<!-- 3. ขมิ้นชัน -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🥬</span>
-<span class="card-art-subtag">ผักริมรั้ว</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#e67e22" height="7" rx="2" width="12" x="6" y="13"></rect>
+<rect fill="#d35400" height="5" rx="2" width="6" x="4" y="11"></rect>
+<rect fill="#f39c12" height="6" rx="2" width="5" x="14" y="9"></rect>
+<rect fill="#438a39" height="9" width="3" x="10" y="4"></rect>
+<rect fill="#589f3a" height="6" rx="1" width="5" x="7" y="5"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">ตำลึง</h4>
-<span class="plant-sci-en">Ivy Gourd (Coccinia grandis)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">ขมิ้นชัน</h3>
 </div>
-<p class="plant-brief">ไม้เลื้อยริมรั้วดูแลง่าย รสจืดเย็น ธาตุอาหารสูง ช่วยบำรุงสายตาและระบบขับถ่าย</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-mild">รสจืดเย็น</span>
-<span class="part-tag">ส่วนที่กิน: ใบ/ยอด</span>
+<div class="plant-sci-name">Turmeric / Curcuma longa</div>
+<p class="plant-brief">สมานแผลในกระเพาะอาหาร ต้านการอักเสบ บรรเทากรดไหลย้อน บำรุงผิวพรรณให้ผ่องใส</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสฝาดเอียน</span>
+<span class="mini-tag tag-property-warm">ฤทธิ์อุ่น</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ บำรุงสายตา</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 4: มะละกอ -->
+<!-- 4. ว่านหางจระเข้ -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🥭</span>
-<span class="card-art-subtag">ผลไม้พื้นเมือง</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#2e7d32" height="15" rx="2" width="4" x="10" y="5"></rect>
+<rect fill="#388e3c" height="11" rx="2" width="3" x="6" y="9"></rect>
+<rect fill="#388e3c" height="11" rx="2" width="3" x="15" y="9"></rect>
+<rect fill="#81c784" height="2" width="2" x="5" y="12"></rect>
+<rect fill="#81c784" height="2" width="2" x="17" y="12"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">มะละกอ</h4>
-<span class="plant-sci-en">Papaya (Carica papaya)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">ว่านหางจระเข้</h3>
 </div>
-<p class="plant-brief">ผลดิบทำส้มตำกรุบกรอบ ผลสุกเนื้อสีส้มรสหวานฉ่ำ เอนไซม์ปาเปนช่วยย่อยอาหารได้ดีเยี่ยม</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-sweet">รสหวานฉ่ำ</span>
-<span class="part-tag">ส่วนที่กิน: ผลดิบ/ผลสุก</span>
+<div class="plant-sci-name">Aloe Vera / Aloe barbadensis</div>
+<p class="plant-brief">สมานแผลไฟไหม้ น้ำร้อนลวก บำรุงผิวให้ชุ่มชื้น ลดรอยแผลเป็น และปลอบประโลมผิวจากแสงแดด</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสจืดเย็น</span>
+<span class="mini-tag tag-property-cool">ฤทธิ์เย็น</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ วิตามินเอ &amp; ซี</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 5: มังคุด -->
+<!-- 5. บัวบก -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🍇</span>
-<span class="card-art-subtag">ผลไม้พื้นเมือง</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#27692c" height="12" width="2" x="11" y="9"></rect>
+<rect fill="#4caf50" height="7" rx="3" width="10" x="7" y="4"></rect>
+<rect fill="#66bb6a" height="5" rx="2" width="7" x="3" y="11"></rect>
+<rect fill="#66bb6a" height="5" rx="2" width="7" x="14" y="10"></rect>
+<rect fill="#27692c" height="5" width="2" x="6" y="15"></rect>
+<rect fill="#27692c" height="5" width="2" x="16" y="14"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">มังคุด</h4>
-<span class="plant-sci-en">Mangosteen (Garcinia mangostana)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">บัวบก</h3>
 </div>
-<p class="plant-brief">ราชินีแห่งผลไม้ไทย เนื้อขาวบริสุทธิ์ รสชาติหวานอมเปรี้ยว สดชื่นคลายร้อน</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-sour">รสเปรี้ยวหวาน</span>
-<span class="part-tag">ส่วนที่กิน: เนื้อผล</span>
+<div class="plant-sci-name">Gotu Kola / Centella asiatica</div>
+<p class="plant-brief">แก้ร้อนใน ช้ำใน บำรุงสมองและความจำ กระตุ้นการสร้างคอลลาเจน และช่วยสมานแผลได้รวดเร็ว</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสขมเย็น</span>
+<span class="mini-tag tag-property-cool">ฤทธิ์เย็น</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ สารต้านอนุมูลอิสระ</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 6: ขนุน -->
+<!-- 6. กะเพรา -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🍈</span>
-<span class="card-art-subtag">ผลไม้ &amp; ไม้มงคล</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#5d4037" height="14" width="2" x="11" y="7"></rect>
+<rect fill="#388e3c" height="4" rx="1" width="5" x="6" y="7"></rect>
+<rect fill="#388e3c" height="4" rx="1" width="5" x="13" y="9"></rect>
+<rect fill="#2e7d32" height="4" rx="1" width="5" x="6" y="12"></rect>
+<rect fill="#7b1fa2" height="3" width="2" x="11" y="4"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">ขนุน</h4>
-<span class="plant-sci-en">Jackfruit (Artocarpus heterophyllus)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">กะเพรา</h3>
 </div>
-<p class="plant-brief">ยวงสีเหลืองทองรสหวานหอมกรอบ ส่วนผลอ่อนนำมาปรุงแกงคั่วหรือตำขนุนรสเลิศ</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-sweet">รสหวานแน่น</span>
-<span class="part-tag">ส่วนที่กิน: ยวงผล/เมล็ด</span>
+<div class="plant-sci-name">Holy Basil / Ocimum tenuiflorum</div>
+<p class="plant-brief">ขับลม แก้อาการจุกเสียด แน่นท้อง บำรุงธาตุไฟ ลดน้ำตาลในเลือด และช่วยให้เจริญอาหาร</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสเผ็ดร้อน</span>
+<span class="mini-tag tag-property-hot">ฤทธิ์ร้อน</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ พลังงานธรรมชาติ</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 7: ตะลิงปลิง -->
+<!-- 7. ตะไคร้ -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🥒</span>
-<span class="card-art-subtag">ผักผลเปรี้ยว</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#c8e6c9" height="8" rx="1" width="3" x="11" y="13"></rect>
+<rect fill="#dcedc8" height="6" rx="1" width="3" x="8" y="15"></rect>
+<rect fill="#4caf50" height="13" width="2" x="11" y="3"></rect>
+<rect fill="#66bb6a" height="11" width="2" x="8" y="5"></rect>
+<rect fill="#81c784" height="12" width="2" x="14" y="4"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">ตะลิงปลิง</h4>
-<span class="plant-sci-en">Bilimbi (Averrhoa bilimbi)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">ตะไคร้</h3>
 </div>
-<p class="plant-brief">ผลไม้รสเปรี้ยวจี๊ดถึงใจ นิยมนำมาใส่ต้มยำ ยำ หรือทานคู่กับกะปิหวานเติมความสดชื่น</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-sour">รสเปรี้ยวจี๊ด</span>
-<span class="part-tag">ส่วนที่กิน: ผลสด</span>
+<div class="plant-sci-name">Lemongrass / Cymbopogon citratus</div>
+<p class="plant-brief">ขับปัสสาวะ กลิ่นหอมระเหยช่วยให้ผ่อนคลายและสดชื่น บรรเทาหวัด ขับลมในลำไส้</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสหอมปร่า</span>
+<span class="mini-tag tag-property-warm">ฤทธิ์อุ่น</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ วิตามินซีเข้มข้น</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 8: ผักกูด -->
+<!-- 8. กระชาย -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🌾</span>
-<span class="card-art-subtag">ผักน้ำสะอาด</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#a1887f" height="5" rx="1" width="8" x="8" y="7"></rect>
+<rect fill="#8d6e63" height="10" rx="1" width="2" x="7" y="11"></rect>
+<rect fill="#795548" height="11" rx="1" width="2" x="10" y="11"></rect>
+<rect fill="#8d6e63" height="10" rx="1" width="2" x="13" y="11"></rect>
+<rect fill="#a1887f" height="8" rx="1" width="2" x="15" y="12"></rect>
+<rect fill="#4caf50" height="5" width="2" x="11" y="3"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">ผักกูด</h4>
-<span class="plant-sci-en">Paco Fern (Diplazium esculentum)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">กระชาย</h3>
 </div>
-<p class="plant-brief">เฟิร์นทานได้ที่เจริญเติบโตเฉพาะแหล่งน้ำสะอาด ยอดม้วนกรอบ เหมาะทำยำผักกูดกุ้งสด</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-sweet">รสหวานกรอบ</span>
-<span class="part-tag">ส่วนที่กิน: ยอดอ่อน</span>
+<div class="plant-sci-name">Fingerroot / Boesenbergia rotunda</div>
+<p class="plant-brief">บำรุงกำลัง ปรับสมดุลฮอร์โมน ต้านเชื้อจุลินทรีย์ บำรุงกระดูกและข้อ สมญานามโสมไทย</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสเผ็ดร้อนขม</span>
+<span class="mini-tag tag-property-hot">ฤทธิ์ร้อน</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ ดัชนีน้ำบริสุทธิ์</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 9: ข่าลิง / มะแขว่น -->
+<!-- 9. มะขามป้อม -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🧂</span>
-<span class="card-art-subtag">เครื่องเทศพื้นบ้าน</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#5d4037" height="12" width="2" x="11" y="2"></rect>
+<circle cx="12" cy="14" fill="#8bc34a" r="6"></circle>
+<circle cx="14" cy="12" fill="#aed581" r="2"></circle>
+<rect fill="#4caf50" height="4" width="3" x="7" y="5"></rect>
+<rect fill="#4caf50" height="4" width="3" x="14" y="6"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">ข่าลิง / มะแขว่น</h4>
-<span class="plant-sci-en">Northern Pepper (Zanthoxylum limonella)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">มะขามป้อม</h3>
 </div>
-<p class="plant-brief">เครื่องเทศล้านนาเอกลักษณ์ กลิ่นหอมซ่าเป็นเอกลักษณ์ นิยมใส่ในลาบคั่วและแกงแค</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-spicy">กลิ่นหอมซ่า</span>
-<span class="part-tag">ส่วนที่กิน: เมล็ด/ผลแห้ง</span>
+<div class="plant-sci-name">Indian Gooseberry / Phyllanthus emblica</div>
+<p class="plant-brief">วิตามินซีสูง แก้ไอ ขับเสมหะ บรรเทาอาการเจ็บคอ บำรุงเสียง และเสริมเกราะป้องกันไข้หวัด</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสเปรี้ยวฝาดขม</span>
+<span class="mini-tag tag-property-cool">ฤทธิ์เย็น</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ ขับลมในกระเพาะ</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 10: มะกรูด -->
+<!-- 10. อัญชัน -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🍋</span>
-<span class="card-art-subtag">เครื่องแกงไทย</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#2e7d32" height="14" width="2" x="11" y="8"></rect>
+<circle cx="11" cy="9" fill="#1e3a8a" r="6"></circle>
+<circle cx="11" cy="9" fill="#3b82f6" r="3.5"></circle>
+<circle cx="11" cy="9" fill="#fef08a" r="1.5"></circle>
+<rect fill="#4caf50" height="4" rx="1" width="5" x="5" y="14"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">มะกรูด</h4>
-<span class="plant-sci-en">Kaffir Lime (Citrus hystrix)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">อัญชัน</h3>
 </div>
-<p class="plant-brief">ผิวมะกรูดและใบหอมฉุน ขาดไม่ได้ในต้มยำและพริกแกง มีน้ำมันหอมระเหยช่วยให้ผ่อนคลาย</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-aroma">หอมระเหยเปรี้ยว</span>
-<span class="part-tag">ส่วนที่กิน: ใบ/ผิวผล</span>
+<div class="plant-sci-name">Butterfly Pea / Clitoria ternatea</div>
+<p class="plant-brief">สารแอนโทไซยานินสูง บำรุงสายตา กระตุ้นการไหลเวียนโลหิต บำรุงเส้นผมให้ดกดำเงางาม</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสจืดเย็น</span>
+<span class="mini-tag tag-property-cool">ฤทธิ์เย็น</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ สารไซตรอนเนลลัล</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 11: ผักแพว -->
+<!-- 11. ไพล -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">☘️</span>
-<span class="card-art-subtag">ผักแนมสมุนไพร</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#f59e0b" height="7" rx="2" width="11" x="7" y="13"></rect>
+<rect fill="#d97706" height="5" rx="2" width="5" x="4" y="11"></rect>
+<rect fill="#b45309" height="5" rx="2" width="5" x="15" y="11"></rect>
+<rect fill="#388e3c" height="9" width="2" x="11" y="4"></rect>
+<rect fill="#4caf50" height="5" rx="1" width="4" x="7" y="6"></rect>
+<rect fill="#4caf50" height="5" rx="1" width="4" x="13" y="7"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">ผักแพว</h4>
-<span class="plant-sci-en">Vietnamese Coriander (Persicaria odorata)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">ไพล</h3>
 </div>
-<p class="plant-brief">ผักพื้นบ้านกลิ่นหอมฉุน รสเผ็ดปร่าเล็กน้อย นิยมกินแนมกับลาบ น้ำตก และข้าวยำปักษ์ใต้</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-spicy">รสเผ็ดปร่า</span>
-<span class="part-tag">ส่วนที่กิน: ยอด/ใบ</span>
+<div class="plant-sci-name">Phlai / Zingiber cassumunar</div>
+<p class="plant-brief">บรรเทาอาการเคล็ดขัดยอก ฟกช้ำ ปวดเมื่อยกล้ามเนื้อ แก้อักเสบเฉพาะที่ และนิยมใช้ทำลูกประคบ</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสเผ็ดปร่า</span>
+<span class="mini-tag tag-property-warm">ฤทธิ์อุ่น</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ บำรุงการไหลเวียน</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-<!-- Card 12: บัวสาย / สายบัว -->
+<!-- 12. ทองพันชั่ง -->
 <article class="listing-plant-card">
-<div class="card-square-art">
-<span class="card-art-emoji">🪷</span>
-<span class="card-art-subtag">พืชน้ำกินได้</span>
+<div class="plant-thumb-box">
+<svg fill="none" height="68" viewbox="0 0 24 24" width="68">
+<rect fill="#2e7d32" height="15" width="2" x="11" y="7"></rect>
+<rect fill="#ffffff" height="4" rx="1" width="8" x="8" y="4"></rect>
+<rect fill="#ffffff" height="7" rx="1" width="3" x="10.5" y="2"></rect>
+<rect fill="#f1f8e9" height="3" width="2" x="11" y="5"></rect>
+<rect fill="#4caf50" height="4" rx="1" width="5" x="5" y="11"></rect>
+<rect fill="#4caf50" height="4" rx="1" width="5" x="14" y="13"></rect>
+</svg>
 </div>
-<div class="card-detail-body">
-<div class="card-naming">
-<h4 class="plant-main-name">บัวสาย (สายบัว)</h4>
-<span class="plant-sci-en">Water Lily Stem (Nymphaea lotus)</span>
+<div class="card-info-col">
+<div class="plant-card-title-row">
+<h3 class="plant-thai-title">ทองพันชั่ง</h3>
 </div>
-<p class="plant-brief">ก้านดอกสายบัวอุ้มน้ำ รสจืดกรอบหวานอ่อนๆ นิยมนำมาทำต้มกะทิสายบัวปลาทูสดรสกลมกล่อม</p>
-<div class="plant-tags-row">
-<span class="taste-tag taste-mild">รสจืดกรอบ</span>
-<span class="part-tag">ส่วนที่กิน: ก้านสายบัว</span>
+<div class="plant-sci-name">White Crane Flower / Rhinacanthus nasutus</div>
+<p class="plant-brief">รักษาโรคผิวหนัง กลากเกลื้อน ต้านเชื้อรา ดับพิษไข้ ดับพิษโลหิต และช่วยสมานแผลผื่นคัน</p>
+<div class="card-bottom-row">
+<div class="card-tags-list">
+<span class="mini-tag tag-taste">รสจืดเบื่อ</span>
+<span class="mini-tag tag-property-cool">ฤทธิ์เย็น</span>
 </div>
-<div class="card-action-bar">
-<span class="card-bot-stat">⭐ ไฟเบอร์กากใยสูง</span>
-<a class="view-pill-btn" href="#">อ่านข้อมูล / View →</a>
+<a class="view-info-btn" href="#">อ่านข้อมูล →</a>
 </div>
 </div>
 </article>
-</div>
-</section>
 </div>
 </main>
-<!-- Shared footer (footer.js) -->
-<div id="site-footer"></div>
-<script src="footer.js"></script>
+</div>
+</div>
+<!-- Footer (Warm Natural Little Roots Botanical Theme) -->
+<footer class="little-roots-footer">
+<div class="container">
+<!-- Top Strip: Logo, Slogan, and Pixel Plants Sprite Banner -->
+<div class="footer-top-strip">
+<div class="footer-branding">
+<svg fill="none" height="36" viewbox="0 0 64 64" width="36">
+<rect fill="#387B3E" height="64" rx="14" width="64"></rect>
+<rect fill="#B3E678" height="8" width="8" x="28" y="16"></rect>
+<rect fill="#88D455" height="8" width="8" x="20" y="24"></rect>
+<rect fill="#88D455" height="8" width="8" x="36" y="24"></rect>
+<rect fill="#3D7527" height="8" width="8" x="28" y="24"></rect>
+<rect fill="#6C4724" height="16" width="8" x="28" y="32"></rect>
+</svg>
+<div>
+<h4 style="font-size: 1.3rem; font-weight: 700; color: rgb(35, 59, 34); line-height: 1.1;">Little Roots</h4>
+<span style="font-size: 0.78rem; color: rgb(105, 125, 103);">Thai Botanical Garden</span>
+</div>
+</div>
+<div class="footer-tagline-quote">
+<span>🍃 ต้นไม้แต่ละชนิด มีมากกว่าที่เราคิด</span>
+</div>
+<!-- 8-Bit Pixel Flora Mini Sprites Row -->
+<div class="pixel-plant-icons-row" title="คอลเลกชันต้นไม้พิกเซล">
+<span class="pixel-mini-item">🪴</span>
+<span class="pixel-mini-item">🌸</span>
+<span class="pixel-mini-item">🌼</span>
+<span class="pixel-mini-item">🌿</span>
+<span class="pixel-mini-item">🌾</span>
+<span class="pixel-mini-item">🍀</span>
+<span class="pixel-mini-item">🌷</span>
+<span class="pixel-mini-item">🍃</span>
+</div>
+</div>
+<!-- Links Columns -->
+<div class="footer-columns-grid">
+<div class="footer-col">
+<h5>เกี่ยวกับ Little Roots</h5>
+<p style="font-size: 0.88rem; color: rgb(97, 115, 94); line-height: 1.6;">
+          สารานุกรมและแหล่งเรียนรู้ธรรมชาติวิทยาสำหรับเยาวชน เชื่อมโยงความรู้เรื่องพืชสมุนไพร พืชอาหาร และความหลากหลายทางชีวภาพของไทย
+        </p>
+<div class="social-pills-row">
+<a class="social-circle-btn" href="#" title="Facebook">f</a>
+<a class="social-circle-btn" href="#" title="Instagram">📷</a>
+<a class="social-circle-btn" href="#" title="YouTube">▶</a>
+<a class="social-circle-btn" href="#" title="Website">🌐</a>
+</div>
+</div>
+<div class="footer-col">
+<h5>สมุนไพรไทย</h5>
+<ul>
+<li><a href="#">สมุนไพรประจำบ้าน</a></li>
+<li><a href="#">สมุนไพรเฉพาะทาง</a></li>
+<li><a href="#">สมุนไพรบำรุงสุขภาพ</a></li>
+<li><a href="#">ตำรับยาสมุนไพรพื้นบ้าน</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h5>พืชกินได้</h5>
+<ul>
+<li><a href="#">ผักพื้นบ้านและผักริมรั้ว</a></li>
+<li><a href="#">ผลไม้พื้นเมืองหายาก</a></li>
+<li><a href="#">เครื่องเทศและพืชแต่งกลิ่น</a></li>
+<li><a href="#">ผักสวนครัวปลูกง่าย</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h5>พืชเศรษฐกิจ</h5>
+<ul>
+<li><a href="#">พืชไร่และพืชแปรรูป</a></li>
+<li><a href="#">พืชเส้นใยและงานจักสาน</a></li>
+<li><a href="#">พืชสกัดและอุตสาหกรรม</a></li>
+<li><a href="#">เกษตรผสมผสานสร้างอาชีพ</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h5>ไม้ประดับ &amp; ถิ่นเดียว</h5>
+<ul>
+<li><a href="#">ไม้ดอกไทยและกล้วยไม้</a></li>
+<li><a href="#">ไม้มงคลและความเชื่อ</a></li>
+<li><a href="#">ไม้จัดสวนในบ้าน</a></li>
+<li><a href="#">พืชหายากและพืชถิ่นเดียว</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Copyright & Navigation Links -->
+<div class="footer-bottom-bar">
+<div>
+        © 2025 Little Roots Thai Botanical Garden. รวบรวมเพื่อการศึกษาและการเรียนรู้ธรรมชาติของเด็กไทย
+      </div>
+<div style="display: flex; gap: 16px;">
+<a href="#" style="color: rgb(97, 115, 94);">การหลัก</a>
+<a href="#" style="color: rgb(97, 115, 94);">พืชกินได้</a>
+<a href="#" style="color: rgb(97, 115, 94);">เศรษฐกิจ</a>
+<a href="#" style="color: rgb(97, 115, 94);">Contact</a>
+<a href="#" style="color: rgb(97, 115, 94);">Links</a>
+</div>
+</div>
+</div>
+</footer>
 </body></html>

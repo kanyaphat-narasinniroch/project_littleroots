@@ -30,14 +30,14 @@
 </a>
 <!-- Categories Quick Navigation -->
 <nav class="header-nav">
-<a class="nav-pill" data-nav="herbs" href="index.html#herbs">
+<a class="nav-pill" data-nav="herbs" href="herb.html">
 <span class="nav-pill-icon">🌿</span>
 <div class="nav-pill-text">
 <span class="nav-pill-title">สมุนไพร</span>
 <span class="nav-pill-sub">Medicinal</span>
 </div>
 </a>
-<a class="nav-pill" data-nav="food" href="herb.html">
+<a class="nav-pill" data-nav="food" href="edible.html">
 <span class="nav-pill-icon">🥕</span>
 <div class="nav-pill-text">
 <span class="nav-pill-title">พืชกินได้</span>
